@@ -46,3 +46,7 @@ class Review(db.Model):
     customer = db.relationship('Customer', back_populates='reviews')
     item = db.relationship('Item', back_populates='reviews')
     serialize_rules = ('-customer.reviews', '-item.reviews')
+
+    
+    def __repr__(self):
+        return f'<Review {self.id}, {self.comment}, Customer: {self.customer_id}, Item: {self.item_id}>'
